@@ -18,8 +18,7 @@ RUN apt-get update && apt-get upgrade -y \
     && update-locale LANG=en_US.UTF-8 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN  apt install build-essential cmake \
-    && apt install libglfw3-dev libsuitesparse-dev liblapacke-dev povray libfreetype6-dev libunistring-dev
+RUN  apt-get -y install --no-install-recommends build-essential cmake libglfw3-dev libsuitesparse-dev liblapacke-dev povray libfreetype6-dev libunistring-dev
 
 # Build Morpho
 RUN git clone https://github.com/Morpho-lang/morpho.git \
