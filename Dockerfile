@@ -18,6 +18,7 @@ RUN apt-get update && apt-get upgrade -y \
     && update-locale LANG=en_US.UTF-8 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# apt-get install dependencies
 RUN  apt-get -y install --no-install-recommends build-essential cmake libglfw3-dev libsuitesparse-dev liblapacke-dev povray libfreetype6-dev libunistring-dev
 
 # Build Morpho
@@ -37,6 +38,7 @@ RUN git clone https://github.com/Morpho-lang/morpho-cli.git \
     && cmake -DCMAKE_BUILD_TYPE=Release .. \
     && sudo make install \
     && cd ../../
+    
 # Build Morphoview
 RUN git clone https://github.com/Morpho-lang/morpho-morphoview.git \
     && cd morpho-morphoview \
